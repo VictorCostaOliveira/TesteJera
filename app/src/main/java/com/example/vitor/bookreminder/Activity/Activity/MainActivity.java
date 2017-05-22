@@ -1,4 +1,4 @@
-package com.example.vitor.bookreminder.Activity;
+package com.example.vitor.bookreminder.Activity.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +12,8 @@ import com.example.vitor.bookreminder.Activity.Rest.BookDAO;
 import com.example.vitor.bookreminder.Activity.Rest.Helper;
 import com.example.vitor.bookreminder.R;
 
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
     private Button buttonSaveBook;
-    private Book book = new Book();
     private Helper helper;
 
     @Override
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        helper = new Helper(book, this);
+        helper = new Helper(this);
 
         buttonSaveBook = (Button) findViewById(R.id.buttonSaveBook);
 
@@ -32,16 +29,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                book = helper.getNewBook();
-                if (!book.getNameBook().equals(null)) {
+                Book book = helper.takeBook();
+                if (!book.getNameBook().equals("")) {
                     BookDAO bookDAO = new BookDAO(MainActivity.this);
                     bookDAO.Insert(book);
                     bookDAO.close();
                     Toast.makeText(MainActivity.this, "Livro salvo com sucesso", Toast.LENGTH_SHORT).show();
-                    finish();
+                    startActivity(new Intent(MainActivity.this, ShowBookRegistered.class));
                 }else{
-                    Toast.makeText(MainActivity.this, "Nome do livro não pode ser vazio", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Titulo não pode ser nulo", Toast.LENGTH_SHORT).show();
                 }
+                finish();
             }
         });
     }

@@ -5,26 +5,18 @@ package com.example.vitor.bookreminder.Activity.Model;
  */
 
 public class Book {
-    private int id;
-    private String nameBook;
-    private int numberPages;
 
-    public Book(){
+    private String nameBook;
+    private String numberPages;
+
+    public Book() {
 
     }
 
-    public Book(int id, String nameBook, int numberPages) {
-        this.id = id;
+    public Book(String nameBook, String numberPages) {
+
         this.nameBook = nameBook;
         this.numberPages = numberPages;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNameBook() {
@@ -35,11 +27,13 @@ public class Book {
         this.nameBook = nameBook;
     }
 
-    public int getNumberPages() {
+    public String getNumberPages() {
         return numberPages;
     }
 
-    public void setNumberPages(int numberPages) {
+    public void setNumberPages(String numberPages) {
         this.numberPages = numberPages;
     }
+
+
 }

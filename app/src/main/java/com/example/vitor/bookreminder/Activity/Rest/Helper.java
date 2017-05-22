@@ -2,7 +2,7 @@ package com.example.vitor.bookreminder.Activity.Rest;
 
 import android.widget.EditText;
 
-import com.example.vitor.bookreminder.Activity.MainActivity;
+import com.example.vitor.bookreminder.Activity.Activity.MainActivity;
 import com.example.vitor.bookreminder.Activity.Model.Book;
 import com.example.vitor.bookreminder.R;
 
@@ -17,9 +17,9 @@ public class Helper {
     private EditText editTextNewBookName;
     private EditText editTextPageNumber;
 
-    public Helper(Book book, MainActivity mainActivity) {
-        this.book = book;
+    public Helper(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
+        book = new Book();
         loadingComponents();
     }
 
@@ -29,9 +29,10 @@ public class Helper {
     }
 
 
-    public Book getNewBook() {
+    public Book takeBook() {
         book.setNameBook(editTextNewBookName.getText().toString());
-        book.setNumberPages(editTextPageNumber.getText().hashCode());
+        book.setNumberPages(editTextPageNumber.getText().toString());
+
         return book;
     }
 }

@@ -25,7 +25,7 @@ public class BookDAO extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE Book (id INTEGER PRIMARY KEY, BookName TEXT NOT NULL, NumberPages INT NOT NULL)";
+        String sql = "CREATE TABLE Book (id INTEGER PRIMARY KEY, bookName TEXT NOT NULL, numberPages TEXT NOT NULL)";
         db.execSQL(sql);
     }
 
@@ -39,7 +39,6 @@ public class BookDAO extends SQLiteOpenHelper {
     public void Insert (Book book){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues =  new ContentValues();
-        contentValues.put("id", book.getId());
         contentValues.put("BookName", book.getNameBook());
         contentValues.put("NumberPages", book.getNumberPages());
         db.insert("Book", null, contentValues);
@@ -52,9 +51,8 @@ public class BookDAO extends SQLiteOpenHelper {
         List<Book> books = new ArrayList<Book>();
         while (c.moveToNext()){
             Book book =  new Book();
-            book.setId(c.getInt(c.getColumnIndex("id")));
-            book.setNameBook(c.getString(c.getColumnIndex("BookName")));
-            book.setNumberPages(c.getInt(c.getColumnIndex("NumberPages")));
+            book.setNameBook(c.getString(c.getColumnIndex("bookName")));
+            book.setNumberPages(c.getString(c.getColumnIndex("numberPages")));
             books.add(book);
         }
         c.close();
