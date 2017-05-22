@@ -32,8 +32,6 @@ public class Helper {
     public Book getNewBook() {
         book.setNameBook(editTextNewBookName.getText().toString());
         book.setNumberPages(editTextPageNumber.getText().hashCode());
-
-
-        return null;
+        return book;
     }
 }

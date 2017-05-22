@@ -25,7 +25,7 @@ public class BookDAO extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE Book (id INTEGER PRIMARY, BookName TEXT NOT NULL, NumberPages INT NOT NULL)";
+        String sql = "CREATE TABLE Book (id INTEGER PRIMARY KEY, BookName TEXT NOT NULL, NumberPages INT NOT NULL)";
         db.execSQL(sql);
     }
 

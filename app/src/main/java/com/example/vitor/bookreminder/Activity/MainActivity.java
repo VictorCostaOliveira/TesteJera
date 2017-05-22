@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Button buttonSaveBook;
-    private Book book;
+    private Book book = new Book();
     private Helper helper;
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        book = new Book();
+        helper = new Helper(book, this);
 
         buttonSaveBook = (Button) findViewById(R.id.buttonSaveBook);
 
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
                     bookDAO.Insert(book);
                     bookDAO.close();
                     Toast.makeText(MainActivity.this, "Livro salvo com sucesso", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, ShowBookRegistered.class));
                     finish();
                 }else{
                     Toast.makeText(MainActivity.this, "Nome do livro não pode ser vazio", Toast.LENGTH_SHORT).show();
