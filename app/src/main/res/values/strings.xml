@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BookReminder</string>
+    <string name="bookName">Nome do livro</string>
+    <string name="numberPages">Quantidade de paginas</string>
+    <string name="signYourBook">Cadastre o seu livro</string>
+</resources>
