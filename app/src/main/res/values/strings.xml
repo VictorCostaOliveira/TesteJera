@@ -3,4 +3,5 @@
     <string name="bookName">Nome do livro</string>
     <string name="numberPages">Quantidade de paginas</string>
     <string name="signYourBook">Cadastre o seu livro</string>
+    <string name="saveBook">Salvar</string>
 </resources>
