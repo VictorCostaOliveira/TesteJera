@@ -1,5 +1,6 @@
 package com.example.vitor.bookreminder.Activity.Adapter;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -13,11 +14,13 @@ import com.example.vitor.bookreminder.R;
 class ViewHolder extends RecyclerView.ViewHolder {
     public TextView textViewNameBook;
     public TextView textViewBookPageNumbers;
+    public CardView cardViewBookInformation;
 
     public ViewHolder(View itemView) {
         super(itemView);
 
         textViewNameBook = (TextView) itemView.findViewById(R.id.textViewNameBook);
         textViewBookPageNumbers = (TextView) itemView.findViewById(R.id.textViewBookNumberPages);
+        cardViewBookInformation = (CardView) itemView.findViewById(R.id.cardViewBookInformation);
     }
 }

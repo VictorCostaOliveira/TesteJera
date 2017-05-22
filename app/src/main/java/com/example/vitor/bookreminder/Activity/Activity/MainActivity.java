@@ -3,6 +3,7 @@ package com.example.vitor.bookreminder.Activity.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         helper = new Helper(this);
 
         buttonSaveBook = (Button) findViewById(R.id.buttonSaveBook);
@@ -36,11 +39,20 @@ public class MainActivity extends AppCompatActivity {
                     bookDAO.close();
                     Toast.makeText(MainActivity.this, "Livro salvo com sucesso", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this, ShowBookRegistered.class));
-                }else{
+                    finish();
+                } else {
                     Toast.makeText(MainActivity.this, "Titulo não pode ser nulo", Toast.LENGTH_SHORT).show();
                 }
-                finish();
+
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

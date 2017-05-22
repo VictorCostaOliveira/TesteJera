@@ -4,4 +4,7 @@
     <string name="numberPages">Quantidade de paginas</string>
     <string name="signYourBook">Cadastre o seu livro</string>
     <string name="saveBook">Salvar</string>
+    <string name="dateReminder">dd-mm-aa</string>
+    <string name="reminderTime">Horario</string>
+    <string name="title_activity_registered">RegisteredActivity</string>
 </resources>

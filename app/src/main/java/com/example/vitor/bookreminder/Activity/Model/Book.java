@@ -6,6 +6,7 @@ package com.example.vitor.bookreminder.Activity.Model;
 
 public class Book {
 
+    private int id;
     private String nameBook;
     private String numberPages;
 
@@ -13,10 +14,18 @@ public class Book {
 
     }
 
-    public Book(String nameBook, String numberPages) {
-
+    public Book(int id, String nameBook, String numberPages) {
+        this.id = id;
         this.nameBook = nameBook;
         this.numberPages = numberPages;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNameBook() {
@@ -36,4 +45,8 @@ public class Book {
     }
 
 
+    @Override
+    public String toString() {
+        return nameBook;
+    }
 }

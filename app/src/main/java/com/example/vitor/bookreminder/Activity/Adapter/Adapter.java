@@ -16,6 +16,7 @@ import java.util.List;
  */
 
 public class Adapter extends RecyclerView.Adapter {
+    AdapterInterface adapterInterface;
 
     public List<Book> books;
     public Context context;
@@ -39,11 +40,22 @@ public class Adapter extends RecyclerView.Adapter {
         final Book book = books.get(position);
         holder.textViewNameBook.setText("Titulo: " + book.getNameBook());
         holder.textViewBookPageNumbers.setText("Paginas: " + book.getNumberPages());
+        holder.cardViewBookInformation.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                adapterInterface.onLongClik(book.getId());
+                return false;
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
         return books.size();
+    }
+
+    public interface AdapterInterface{
+        void onLongClik(int id);
     }
 }
